@@ -1,0 +1,53 @@
+<!doctype html>
+<!-- Copyright 2026 上海如静知华信息科技有限公司 · https://www.zhuatech.cn/ -->
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="知华科技智能会议室预约系统，综合人数、设备、地点和日程冲突给出可解释的会议室建议。预留 DeepSeek 兼容接口。">
+  <meta name="keywords" content="智能会议室预约,会议室管理,日程冲突,办公协同,DeepSeek Java,知华科技">
+  <title>ZhuaTech Room Agent｜知华科技智能会议室预约系统</title><link rel="icon" href="favicon.svg"><link rel="stylesheet" href="style.css">
+</head>
+<body style="--accent:#3f617f;--accent-2:#587a98">
+  <aside class="sidebar">
+    <a class="brand" href="https://www.zhuatech.cn/" target="_blank"><span class="brand-mark">ZH</span><span><b>知华科技</b><small>ROOM AGENT</small></span></a>
+    <div class="workspace-name"><span>企业工作空间</span><b>上海演示环境⌄</b></div>
+    <nav><button class="nav-item active"><span>▦</span>会议室日历</button>
+      <button class="nav-item "><span>◇</span>智能推荐</button>
+      <button class="nav-item "><span>✓</span>冲突处理</button>
+      <button class="nav-item "><span>⌁</span>设备状态</button></nav>
+    <div class="side-card"><b>本地演示模式</b><p>不会调用外部模型，也不会上传真实业务数据。</p><a href="https://www.zhuatech.cn/" target="_blank">访问知华科技官网 ↗</a></div>
+  </aside>
+  <main>
+    <header class="topbar"><div><p>办公空间协同 / 工作台</p><h1>智能会议室预约</h1></div><div class="top-actions"><button class="icon-button">⌕</button><button class="icon-button">?</button><span class="avatar">知</span></div></header>
+    <div class="content">
+      <section class="page-head"><div><h2>办公空间协同工作台</h2><p>综合人数、设备、地点和日程冲突给出可解释的会议室建议</p></div><button class="primary" id="run-open">＋ 新建分析任务</button></section>
+      <section class="metrics"><article class="metric"><span>今日会议</span><strong>42</strong><small>较昨日 +8%</small></article>
+        <article class="metric"><span>可用会议室</span><strong>9</strong><small>本周保持稳定</small></article>
+        <article class="metric"><span>待处理冲突</span><strong>3</strong><small>需要优先处理</small></article>
+        <article class="metric"><span>设备可用率</span><strong>96%</strong><small>数据更新于 10:30</small></article></section>
+      <section class="workspace-grid">
+        <article class="panel queue-panel">
+          <header><div><h3>当前处理队列</h3><p>按风险和更新时间排序</p></div><div class="tools"><label>⌕<input id="search" placeholder="搜索记录"></label><button id="refresh">刷新</button></div></header>
+          <div class="table-wrap"><table><thead><tr><th>会议主题</th><th>时间</th><th>人数</th><th>推荐会议室</th><th>状态</th></tr></thead><tbody><tr data-keywords="华东仓验收预演 周一 14:00–16:00 12 浦江厅 可预约"><td><b>华东仓验收预演</b></td><td>周一 14:00–16:00</td><td>12</td><td><span class="risk r0">浦江厅</span></td><td>可预约</td></tr>
+            <tr data-keywords="产品需求评审 今天 15:30–16:30 8 春申厅 有冲突"><td><b>产品需求评审</b></td><td>今天 15:30–16:30</td><td>8</td><td><span class="risk r1">春申厅</span></td><td>有冲突</td></tr>
+            <tr data-keywords="客户远程演示 明天 10:00–11:00 6 长宁 3A 已预约"><td><b>客户远程演示</b></td><td>明天 10:00–11:00</td><td>6</td><td><span class="risk r2">长宁 3A</span></td><td>已预约</td></tr></tbody></table></div>
+          <footer><span>显示 3 条重点记录</span><div><button>‹</button><b>1</b><button>›</button></div></footer>
+        </article>
+        <article class="panel insight-panel">
+          <header><div><span class="eyebrow">AI 辅助分析</span><h3>华东仓验收预演</h3><p>跨地域客户验收会议</p></div><span class="status">待人工确认</span></header>
+          <section class="summary"><b>分析摘要</b><p>浦江厅容量与视频会议设备满足需求，且与参会人日程无冲突。建议预留会前 15 分钟用于设备检查。</p></section>
+          <ul class="findings"><li><span>1</span><div><b>识别结果</b><p>容量 16 人，满足 12 人会议</p></div><em>94%</em></li>
+              <li><span>2</span><div><b>风险关注</b><p>视频会议与双屏设备状态正常</p></div><em>82%</em></li>
+              <li><span>3</span><div><b>处理边界</b><p>核心参会人日程未发现冲突</p></div><em>76%</em></li></ul>
+          <section class="actions"><b>建议动作</b><label><input type="checkbox"><span>预订浦江厅 13:45–16:00</span></label>
+              <label><input type="checkbox"><span>通知行政准备访客席位</span></label>
+              <label><input type="checkbox"><span>会前一天再次检查设备</span></label></section>
+          <footer><button class="secondary">查看依据</button><button class="primary" id="approve">确认并进入流程</button></footer>
+        </article>
+      </section>
+      <div class="audit-line"><span>最后同步：2026-08-22 10:30</span><span>所有模型输出均需人工复核 · 上海如静知华信息科技有限公司</span></div>
+    </div>
+  </main>
+  <dialog id="run-dialog"><form method="dialog"><button class="close" value="cancel">×</button><span class="dialog-icon">室</span><h3>新建智能会议室预约任务</h3><p>填写演示对象与业务上下文，系统将执行本地确定性规则。</p><label>分析对象<input id="subject" value="华东仓验收预演"></label><label>业务场景<input id="scenario" value="跨地域客户验收会议"></label><label>补充上下文<textarea id="context">请结合当前业务规则给出可解释结果和后续动作。</textarea></label><label class="check"><input id="human-review" type="checkbox" checked> 结果进入人工复核队列</label><button class="primary wide" id="run-submit" value="default">运行演示分析</button><small id="run-status"></small></form></dialog>
+  <div class="toast" id="toast">已确认，任务进入后续流程</div><script src="app.js"></script>
+</body></html>
